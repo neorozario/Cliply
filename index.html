@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cliply - Your Smart Clipboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-paperclip"></i> Cliply</h1>
+            <div class="header-actions">
+                <div class="search-container">
+                    <input type="text" id="search" placeholder="Search items...">
+                    <i class="fas fa-search"></i>
+                </div>
+                <button class="btn btn-clear" id="clearBoard">
+                    <i class="fas fa-trash-alt"></i>
+                    Clear Board
+                </button>
+            </div>
+        </header>
+
+        <main>
+            <div class="paste-area">
+                <div class="paste-instructions">
+                    <i class="fas fa-paste"></i>
+                    <p>Paste (Ctrl+V) text or screenshots here</p>
+                </div>
+            </div>
+
+            <div id="board" class="board"></div>
+        </main>
+
+        <div class="toast" id="toast"></div>
+    </div>
+
+    <div class="link-dialog" id="linkDialog">
+        <input type="text" id="linkUrl" placeholder="Enter URL (e.g., https://example.com)">
+        <div class="link-dialog-buttons">
+            <button class="btn" id="cancelLink">Cancel</button>
+            <button class="btn" id="addLink">Add Link</button>
+        </div>
+    </div>
+
+    <div class="confirmation-dialog" id="clearConfirmationDialog">
+        <h3>Clear Board</h3>
+        <p>Are you sure you want to clear the entire board? This action cannot be undone.</p>
+        <div class="dialog-buttons">
+            <button class="btn" id="cancelClear">Cancel</button>
+            <button class="btn btn-danger" id="confirmClear">Clear Board</button>
+        </div>
+    </div>
+
+    <div class="context-menu" id="contextMenu">
+        <!-- Text and Image Common Actions -->
+        <button id="copyItem">
+            <i class="fas fa-copy"></i>
+            Copy
+        </button>
+        <button id="deleteItem">
+            <i class="fas fa-trash"></i>
+            Delete
+        </button>
+        <div class="separator"></div>
+        
+        <!-- Text Specific Actions -->
+        <div id="textActions">
+            <button id="addLink">
+                <i class="fas fa-link"></i>
+                Add Link
+            </button>
+        </div>
+        
+        <!-- Image Specific Actions -->
+        <div id="imageActions">
+            <button id="rotateImage">
+                <i class="fas fa-undo"></i>
+                Rotate
+            </button>
+            <button id="flipHorizontal">
+                <i class="fas fa-arrows-alt-h"></i>
+                Flip Horizontal
+            </button>
+            <button id="flipVertical">
+                <i class="fas fa-arrows-alt-v"></i>
+                Flip Vertical
+            </button>
+            <button id="resizeImage">
+                <i class="fas fa-expand"></i>
+                Resize
+            </button>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
